@@ -292,12 +292,15 @@ section { padding: 90px 5%; }
 .section-header { margin-bottom: 52px; }
 
 
-#fitur { background: white; }
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+#fitur { background:white; }
+.features-grid { display: flex; gap: 24px; overflow: auto;scroll-snap-type: x mandatory;padding-bottom: 10px;}
 .feature-card {
+  min-width: 280px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
   border: 1.5px solid var(--border); border-radius: 18px; padding: 32px 28px;
   transition: transform .25s, box-shadow .25s, border-color .25s;
-  position: relative; overflow: hidden;
+  position: relative;
 }
 .feature-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -340,8 +343,24 @@ section { padding: 90px 5%; }
 .check-text { font-size: 14px; color: var(--gray); line-height: 1.6; }
 
 #unduh {
-  background: linear-gradient(155deg, #5751ed 0%, #3428d9 60%, #bb6fed 100%);
-  position: relative; overflow: hidden;
+  background: url('UNDUHPAGE.jpg') center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 20px;
+  background-attachment: fixed;
+
+}
+
+#unduh::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#unduh .section-inner {
+  position: relative;
+  z-index: 1;
 }
 
 #unduh .section-title { color: white; }
@@ -406,22 +425,110 @@ section { padding: 90px 5%; }
 .qr-label { font-size: 12px; font-weight: 600; color: var(--navy); text-align: center; }
 
 
-footer { background: #ffffff; padding: 52px 5% 28px; }
-.footer-inner { max-width: 1200px; margin: 0 auto; }
-.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.footer-logo { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, var(--sky), var(--blue)); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; color: white; }
-.footer-name { color: rgb(0, 0, 0); font-weight: 700; font-size: 17px; font-family: 'Space Grotesk', sans-serif; }
-.footer-desc { color: rgba(0, 0, 0, 0.45); font-size: 13px; line-height: 1.7; max-width: 300px; }
-.footer-contact { margin-top: 20px; display: flex; flex-direction: column; gap: 7px; }
-.footer-contact-item { color: rgba(0, 0, 0, 0.5); font-size: 12px; }
-.footer-col-title { color: rgb(0, 0, 0); font-weight: 700; font-size: 14px; margin-bottom: 18px; }
-.footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { color: rgba(0, 0, 0, 0.45); font-size: 13px; text-decoration: none; transition: color .2s; }
-.footer-links a:hover { color: var(--gold); }
-.footer-bottom { padding-top: 24px; }
-.footer-copy { color: rgba(0, 0, 0, 0.3); font-size: 12px; }
-.footer-copy a { color: var(--gold); text-decoration: none; }
+.footer {
+  background: #f7f7f9;
+  padding: 60px 80px 20px;
+  font-family: 'Inter', sans-serif;
+  color: #555;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+}
+
+/* Logo */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo img {
+  width: 45px;
+}
+
+.footer-logo h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #111;
+}
+
+/* Deskripsi */
+.footer-desc {
+  margin: 15px 0;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Contact */
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+.footer-contact li {
+  margin-bottom: 8px;
+}
+
+/* Judul kanan */
+.footer-col h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+/* Link */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #777;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #5d48e3;
+}
+
+/* Bottom */
+.footer-bottom {
+  border-top: 1px solid #e5e5e5;
+  margin-top: 40px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-bottom span {
+  color: #5d48e3;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+}
 
 
 .reveal {
@@ -580,6 +687,7 @@ footer { background: #ffffff; padding: 52px 5% 28px; }
 .fitur h2 {
   font-size: 32px;
   margin-bottom: 10px;
+  text-align: center !important;
 }
 
 /* deskripsi */
@@ -591,10 +699,16 @@ footer { background: #ffffff; padding: 52px 5% 28px; }
 }
 
 /* grid card */
-.fitur-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.features-grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.features-grid::-webkit-scrollbar {
+  display: none;
 }
 
 /* card */
@@ -609,6 +723,12 @@ footer { background: #ffffff; padding: 52px 5% 28px; }
 
 .card:hover {
   transform: translateY(-5px);
+}
+
+.feature-card {
+  min-width: 280px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
 /* icon */
@@ -655,20 +775,6 @@ footer { background: #ffffff; padding: 52px 5% 28px; }
   grid-template-columns: repeat(3,1fr);
   gap: 30px;
   justify-content: center;
-}
-
-.card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 16px;
-  transition: 0.3s;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .icon {
@@ -767,4 +873,169 @@ footer { background: #ffffff; padding: 52px 5% 28px; }
   display: flex;
   justify-content: center;
   gap: 8px;
+}
+
+.btn-download {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn-download i {
+  font-size: 24px;
+}
+
+.btn-download:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Container download section */
+.download {
+  color: #fff;
+}
+
+/* Tulisan kecil "UNDuh SEKARANG" */
+.download .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Judul besar */
+.download h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 10px 0 20px;
+}
+
+/* Paragraf */
+.download p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.85;
+  max-width: 500px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#fitur {
+  text-align: center;
+}
+
+#fitur h2 {
+  text-align: center;
+}
+
+#fitur .desc {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.fitur-slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+/* hilangin scrollbar (opsional biar clean) */
+.fitur-slider::-webkit-scrollbar {
+  display: none;
+  
+}
+
+.card {
+  min-width: 280px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.fitur-slider {
+  cursor: grab;
+}
+
+.fitur-slider:active {
+  cursor: grabbing;
+}
+
+/* FORCE SLIDER - OVERRIDE SEMUA */
+.features-grid {
+  display: flex !important;
+  overflow-x: auto !important;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.features-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.feature-card {
+  min-width: 260px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.features-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+}
+
+.features-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 260px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.fitur-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.fitur-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 260px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: left;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }

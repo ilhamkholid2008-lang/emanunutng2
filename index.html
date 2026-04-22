@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -68,7 +70,7 @@
 
 <!-- FITUR -->
 
-    <section class="fitur">
+    <section id="fitur">
   <div class="container">
     
     <p class="label">FITUR UNGGULAN</p>
@@ -80,47 +82,45 @@
       kepegawaian ASN Kota Balikpapan.
     </p>
 
-   <div class="fitur-grid">
+    <div class="features-slider">
 
-  <div class="card">
-    <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
-    <h3>eKinerja</h3>
-    <p>Integrasi Aplikasi Pelaporan Kinerja ASN secara digital dan terpadu.</p>
-  </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>eKinerja</h3>
+        <p>Integrasi Aplikasi Pelaporan Kinerja ASN secara digital.</p>
+      </div>
 
-  <div class="card">
-    <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
-    <h3>eOffice</h3>
-    <p>Integrasi aplikasi persuratan untuk mempermudah administrasi.</p>
-  </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <h3>eOffice</h3>
+        <p>Integrasi aplikasi persuratan.</p>
+      </div>
 
-  <div class="card">
-    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
-    <h3>Presensi Kehadiran</h3>
-    <p>Presensi berbasis GPS untuk keakuratan data ASN.</p>
-  </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h3>Presensi</h3>
+        <p>Presensi berbasis GPS.</p>
+      </div>
 
-  <div class="card">
-    <div class="icon"><i class="fa-solid fa-calendar-days"></i></div>
-    <h3>Presensi Kegiatan</h3>
-    <p>Presensi kegiatan, rapat, event berbasis GPS real-time.</p>
-  </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-calendar-days"></i></div>
+        <h3>Kegiatan</h3>
+        <p>Presensi event real-time.</p>
+      </div>
 
-  <div class="card">
-    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
-    <h3>eMail Kota</h3>
-    <p>Akses email resmi pemerintah untuk komunikasi ASN.</p>
-  </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+        <h3>Email</h3>
+        <p>Email resmi ASN.</p>
+      </div>
 
-  <div class="card">
-    <div class="icon"><i class="fa-solid fa-users"></i></div>
-    <h3>Simpeg</h3>
-    <p>Pengelolaan data ASN secara terintegrasi.</p>
-  </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-users"></i></div>
+        <h3>Simpeg</h3>
+        <p>Data ASN terintegrasi.</p>
+      </div>
 
-</div>
-  </div>
-</section>
+    </div>
   </div>
 </section>
 <!-- TENTANG -->
@@ -171,33 +171,71 @@
 
     <div class="store-buttons">
 
-      <a href="#" class="store-btn">
-        <span class="store-icon">▶</span>
-        <div>
-          <div class="store-info-label">DOWNLOAD DI</div>
-          <div class="store-info-name">Google Play</div>
-        </div>
-      </a>
+      <a href="https://play.google.com/store/apps?hl=id" class="btn-download">
+  <i class="fa-brands fa-google-play"></i>
+  <div>
+    <small>DOWNLOAD DI</small>
+    <strong>Google Play</strong>
+  </div>
+</a>
 
-      <a href="#" class="store-btn apple">
-        <span class="store-icon"></span>
-        <div>
-          <div class="store-info-label">DOWNLOAD DI</div>
-          <div class="store-info-name">App Store</div>
-        </div>
-      </a>
-
+<a href="https://www.apple.com/id/app-store/" class="btn-download">
+  <i class="fa-brands fa-apple"></i>
+  <div>
+    <small>DOWNLOAD DI</small>
+    <strong>App Store</strong>
+  </div>
+</a>
     </div>
 
   </div>
 </section>
 
-<footer>
-  <div class="footer-inner center">
-    <p>© 2026 eManuntung – Pemerintah Kota Balikpapan</p>
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Kiri -->
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="logo emanuntung.svg" alt="logo">
+        <h3>eManuntung</h3>
+      </div>
+
+      <p class="footer-desc">
+        Aplikasi Portal Layanan Kepegawaian Pemerintah Kota Balikpapan.
+      </p>
+
+      <ul class="footer-contact">
+        <li>📍 Jl. Jenderal Sudirman No.1 RT.13, Kota Balikpapan</li>
+        <li>📞 0542-421500, 421600, 734115</li>
+        <li>✉️ admin@balikpapan.go.id</li>
+      </ul>
+    </div>
+
+    <!-- Tengah -->
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#fitur">Fitur</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#unduh">Unduh</a></li>
+      </ul>
+    </div>
+
+    <!-- Kanan -->
+    <div class="footer-col">
+      <h4>Kebijakan</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Condition</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>© 2026 <span>eManuntung</span>. All Rights Reserved. Pemkot Balikpapan.</p>
   </div>
 </footer>
-
-<script src="script.js"></script>
-</body>
-</html>
