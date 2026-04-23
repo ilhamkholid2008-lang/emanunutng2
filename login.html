@@ -6,260 +6,248 @@
   <title>Login – eManuntung</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #000000; --blue: #212194; --sky: #5855eb;
-      --gold: #fffefa; --gray: #000000; --error: #9d60df;
-    }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      min-height: 100vh;
-      background: linear-gradient(160deg, #fffdff 0%, #3444ef 55%, #1a40c7 100%);
-      display: flex; align-items: center; justify-content: center;
-      padding: 24px; position: relative; overflow: hidden;
-    }
-    body::before {
-      content: ''; position: fixed; top: -200px; right: -200px;
-      width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(135, 24, 225, 0.18) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    body::after {
-      content: ''; position: fixed; bottom: -150px; left: -100px;
-      width: 500px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(242,201,76,0.08) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .grid-bg {
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 50px 50px;
-    }
-    .wrapper {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr 1fr;
-      max-width: 920px; width: 100%; border-radius: 28px; overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
-    }
-    .left {
-      background: linear-gradient(145deg, rgba(26,107,58,0.55), rgba(10,46,26,0.85));
-      backdrop-filter: blur(20px); border-right: 1px solid rgba(255,255,255,0.08);
-      padding: 52px 40px; display: flex; flex-direction: column; justify-content: space-between;
-      position: relative; overflow: hidden;
-    }
-    .left::before {
-      content: ''; position: absolute; top: -80px; right: -80px;
-      width: 280px; height: 280px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(39,174,96,0.22) 0%, transparent 70%);
-    }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-logo {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--sky), var(--blue));
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 16px; color: white;
-    }
-    .brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: white; }
-    .brand-name span { color: var(--gold); }
-    .left-body { margin-top: 48px; }
-    .left-title { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; color: white; line-height: 1.2; margin-bottom: 14px; }
-    .left-title .accent { color: var(--gold); }
-    .left-desc { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.7; }
-    .left-features { margin-top: 36px; display: flex; flex-direction: column; gap: 14px; }
-    .feat-item { display: flex; align-items: center; gap: 12px; }
-    .feat-dot {
-      width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center; font-size: 15px;
-    }
-    .feat-text { color: rgba(255,255,255,0.65); font-size: 13px; }
-    .left-footer { color: rgba(255,255,255,0.22); font-size: 12px; }
-    .right { background: white; padding: 52px 44px; display: flex; flex-direction: column; justify-content: center; }
-    .form-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: var(--sky); text-transform: uppercase; margin-bottom: 10px; }
-    .form-title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-    .form-sub { font-size: 13px; color: var(--gray); margin-bottom: 32px; }
-    .form-group { margin-bottom: 18px; }
-    .form-label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 7px; }
-    .input-wrap { position: relative; }
-    .input-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 15px; pointer-events: none; }
-    .form-input {
-      width: 100%; padding: 12px 14px 12px 42px;
-      border: 1.5px solid #E2E8F0; border-radius: 10px;
-      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; color: var(--navy);
-      background: #F8FAFF; outline: none; transition: border-color .2s, box-shadow .2s, background .2s;
-    }
-    .form-input:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(99, 3, 232, 0.14); background: white; }
-    .form-input.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
-    .form-input.has-toggle { padding-right: 44px; }
-    .toggle-pw { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 16px; color: var(--gray); padding: 0; }
-    .error-msg { font-size: 12px; color: var(--error); margin-top: 5px; display: none; }
-    .error-msg.show { display: block; }
-    .form-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
-    .checkbox-wrap { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-    .checkbox-wrap input { accent-color: var(--blue); width: 15px; height: 15px; }
-    .checkbox-label { font-size: 13px; color: var(--gray); }x
-    .forgot-link { font-size: 13px; color: var(--sky); text-decoration: none; font-weight: 600; }
-    .forgot-link:hover { text-decoration: underline; }
-    .btn-login {
-      width: 100%; padding: 14px;
-      background: linear-gradient(135deg, var(--sky), var(--blue));
-      color: white; border: none; border-radius: 10px;
-      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer;
-      transition: transform .2s, box-shadow .2s, opacity .2s;
-    }
-    .btn-login:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(22, 10, 113, 0.35); }
-    .btn-login:disabled { opacity: .7; cursor: not-allowed; transform: none; }
-    .btn-login .spinner { display: none; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.4); border-top-color: white; border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto; }
-    .btn-login.loading .btn-text { display: none; }
-    .btn-login.loading .spinner { display: block; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; color: #CBD5E1; font-size: 12px; }
-    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #E2E8F0; }
-    .back-link { text-align: center; margin-top: 16px; font-size: 13px; color: var(--gray); }
-    .back-link a { color: var(--blue); font-weight: 700; text-decoration: none; }
-    .back-link a:hover { text-decoration: underline; }
-    .success-screen { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
-    .success-icon {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--sky), var(--blue));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px; margin: 0 auto 20px;
-      animation: popIn .4s cubic-bezier(.34,1.56,.64,1);
-    }
-    @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
-    .success-title { font-family: 'Space Grotesk',sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .success-sub { font-size: 14px; color: var(--gray); margin-bottom: 24px; line-height: 1.6; }
-    .success-countdown { font-size: 12px; color: var(--gray); }
-    .success-countdown span { color: var(--blue); font-weight: 700; }
-    .toast {
-      position: fixed; bottom: 28px; left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: var(--navy); color: white; border-radius: 12px;
-      padding: 12px 22px; font-size: 13px; font-weight: 600;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999;
-      transition: transform .3s cubic-bezier(.34,1.56,.64,1); white-space: nowrap;
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); }
-    .toast.is-error { background: var(--error); }
-    @media (max-width: 680px) {
-      .wrapper { grid-template-columns: 1fr; border-radius: 24px; }
-      .left { display: none; }
-      .right { padding: 40px 28px; border-radius: 24px; }
-    }
-  </style>
-</head>
-<body>
-<div class="grid-bg"></div>
-<div class="wrapper">
-  <div class="left">
-    <div class="brand">
-   <img src="logo.svg" alt="logo"style="width:50px;height:50px;margin-right:10px">
-      <span class="brand-name">e<span>Manuntung</span></span>
-    </div>
-    <div class="left-body">
-      <h2 class="left-title">Selamat Datang<br>Kembali, <span class="accent">ASN!</span></h2>
-      <p class="left-desc">Masuk ke portal layanan kepegawaian terpadu Pemerintah Kota Balikpapan.</p>
-      <div class="left-features">
-        <div class="feat-item"><div class="feat-dot">📊</div><span class="feat-text">Pantau kinerja & laporan harian</span></div>
-        <div class="feat-item"><div class="feat-dot">📍</div><span class="feat-text">Presensi berbasis GPS Mobile</span></div>
-        <div class="feat-item"><div class="feat-dot">✉️</div><span class="feat-text">Kelola persuratan digital</span></div>
-        <div class="feat-item"><div class="feat-dot">🗂️</div><span class="feat-text">Akses data Simpeg BKPSDM</span></div>
-      </div>
-    </div>
-    <div class="left-footer">© 2026 eManuntung · Pemkot Balikpapan</div>
-  </div>
-  <div class="right">
-    <div id="loginForm">
-      <div class="form-eyebrow">Portal ASN</div>
-      <h1 class="form-title">Masuk ke Akun</h1>
-      <p class="form-sub">Gunakan NIP dan password kepegawaian Anda</p>
-      <div class="form-group">
-        <label class="form-label" for="nip">NIP (Nomor Induk Pegawai)</label>
-        <div class="input-wrap">
-         
-          <input class="form-input" type="text" id="nip" placeholder="Masukkan NIP Anda" maxlength="18" oninput="clearErr('nip')"/>
-        </div>
-        <div class="error-msg" id="nip-error">NIP tidak boleh kosong.</div>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="password">Password</label>
-        <div class="input-wrap">
-    
-          <input class="form-input has-toggle" type="password" id="password" placeholder="Masukkan password Anda" oninput="clearErr('password')"/>
-          <button class="toggle-pw" type="button" onclick="togglePw()" id="pwBtn">👁️</button>
-        </div>
-        <div class="error-msg" id="password-error">Password tidak boleh kosong.</div>
-      </div>
-      <div class="form-row">
-        <label class="checkbox-wrap">
-          <input type="checkbox" id="remember"/>
-          <span class="checkbox-label">Ingat saya</span>
-        </label>
-        <a href="#" class="forgot-link">Lupa password?</a>
-      </div>
-      <button class="btn-login" id="loginBtn" onclick="doLogin()">
-        <span class="btn-text">Masuk</span>
-        <div class="spinner"></div>
-      </button>
-      <div class="divider">atau</div>
-      <div class="back-link">
-        Belum punya akun? <a href="#">Hubungi Admin</a> &nbsp;·&nbsp;
-        <a href="index.html">← Kembali ke Beranda</a>
-      </div>
-    </div>
-    <div class="success-screen" id="successScreen">
-      <div class="success-icon">✓</div>
-      <div class="success-title">Login Berhasil!</div>
-      <div class="success-sub">Selamat datang kembali di eManuntung.<br>Anda akan diarahkan ke beranda.</div>
-      <div class="success-countdown">Mengalihkan dalam <span id="cd">3</span> detik...</div>
-    </div>
-  </div>
-</div>
-<div class="toast" id="toast"></div>
-<script>
-  let pwVisible = false;
-  function togglePw() {
-    const input = document.getElementById('password');
-    const btn = document.getElementById('pwBtn');
-    pwVisible = !pwVisible;
-    input.type = pwVisible ? 'text' : 'password';
-    btn.textContent = pwVisible ? '—' : '👁️';
-  }
-  function clearErr(field) {
-    document.getElementById(field).classList.remove('error');
-    document.getElementById(field + '-error').classList.remove('show');
-  }
-  function showToast(msg, isErr = false) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className = 'toast' + (isErr ? ' is-error' : '');
-    setTimeout(() => t.classList.add('show'), 10);
-    setTimeout(() => t.classList.remove('show'), 3200);
-  }
-  function doLogin() {
-    const nip = document.getElementById('nip').value.trim();
-    const pw  = document.getElementById('password').value.trim();
-    let ok = true;
-    if (!nip) { document.getElementById('nip').classList.add('error'); document.getElementById('nip-error').classList.add('show'); ok = false; }
-    if (!pw)  { document.getElementById('password').classList.add('error'); document.getElementById('password-error').classList.add('show'); ok = false; }
-    if (!ok) return;
-    const btn = document.getElementById('loginBtn');
-    btn.classList.add('loading'); btn.disabled = true;
-    setTimeout(() => {
-      btn.classList.remove('loading'); btn.disabled = false;
-      if (pw.length >= 6) { showSuccess(); }
-      else { showToast('NIP atau password salah!', true); }
-    }, 1800);
-  }
-  function showSuccess() {
-    document.getElementById('loginForm').style.display = 'none';
-    const sc = document.getElementById('successScreen');
-    sc.style.display = 'flex';
-    let n = 3;
-    const cd = document.getElementById('cd');
-    const iv = setInterval(() => { n--; cd.textContent = n; if (n <= 0) { clearInterval(iv); window.location.href = 'index.html'; } }, 1000);
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
-</script>
-</body>
-</html>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0f172a;
+  --blue: #1d4ed8;
+  --sky: #38bdf8;
+  --indigo: #6366f1;
+  --gray: #64748b;
+  --error: #ef4444;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url('balai-kota.png') center/cover no-repeat fixed;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; position: relative; overflow: hidden;
+}
+
+/* Grid pattern sama kayak hero */
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.wrapper {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  max-width: 900px; width: 100%; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* ===== KIRI ===== */
+.left {
+  background: rgba(10, 30, 80, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 48px 40px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+
+.left::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.left::after {
+  content: ''; position: absolute; bottom: -80px; left: -80px;
+  width: 250px; height: 250px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+
+.brand-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px; font-weight: 700; color: white;
+}
+
+.brand-name span {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.left-body { margin-top: 48px; }
+
+.left-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px; font-weight: 700;
+  color: white; line-height: 1.25; margin-bottom: 12px;
+}
+
+.left-title .accent {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.left-desc { color: rgba(255,255,255,0.5); font-size: 13.5px; line-height: 1.7; }
+
+.left-features { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+
+.feat-item { display: flex; align-items: center; gap: 12px; }
+
+.feat-dot {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+}
+
+.feat-text { color: rgba(255,255,255,0.6); font-size: 13px; }
+
+.left-footer { color: rgba(255,255,255,0.2); font-size: 11px; }
+
+/* ===== KANAN ===== */
+.right {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  padding: 48px 44px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.form-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  color: var(--sky); text-transform: uppercase; margin-bottom: 8px;
+}
+
+.form-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 6px;
+}
+
+.form-sub { font-size: 13px; color: var(--gray); margin-bottom: 28px; }
+
+.form-group { margin-bottom: 16px; }
+
+.form-label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+
+.input-wrap { position: relative; }
+
+.form-input {
+  width: 100%; padding: 11px 14px;
+  border: 1.5px solid #e2e8f0; border-radius: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; color: var(--navy);
+  background: #f8faff; outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.form-input:focus {
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
+  background: white;
+}
+
+.form-input.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
+.form-input.has-toggle { padding-right: 44px; }
+
+.toggle-pw {
+  position: absolute; right: 13px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer; font-size: 16px;
+  color: var(--gray); padding: 0;
+}
+
+.error-msg { font-size: 12px; color: var(--error); margin-top: 5px; display: none; }
+.error-msg.show { display: block; }
+
+.form-row {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+}
+
+.checkbox-wrap { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.checkbox-wrap input { accent-color: var(--indigo); width: 15px; height: 15px; }
+.checkbox-label { font-size: 13px; color: var(--gray); }
+
+.forgot-link {
+  font-size: 13px; color: var(--indigo); text-decoration: none; font-weight: 600;
+}
+.forgot-link:hover { text-decoration: underline; }
+
+.btn-login {
+  width: 100%; padding: 13px;
+  background: linear-gradient(135deg, var(--sky), var(--indigo));
+  color: white; border: none; border-radius: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(56,189,248,0.35);
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(56,189,248,0.45);
+}
+
+.btn-login:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+.btn-login .spinner {
+  display: none; width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,0.4); border-top-color: white;
+  border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto;
+}
+.btn-login.loading .btn-text { display: none; }
+.btn-login.loading .spinner { display: block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 20px 0; color: #cbd5e1; font-size: 12px;
+}
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
+
+.back-link { text-align: center; margin-top: 14px; font-size: 13px; color: var(--gray); }
+.back-link a { color: var(--indigo); font-weight: 700; text-decoration: none; }
+.back-link a:hover { text-decoration: underline; }
+
+/* Success screen */
+.success-screen {
+  display: none; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+}
+.success-icon {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--sky), var(--indigo));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; margin: 0 auto 20px;
+  animation: popIn .4s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+.success-title { font-family: 'Space Grotesk',sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.success-sub { font-size: 14px; color: var(--gray); margin-bottom: 24px; line-height: 1.6; }
+.success-countdown { font-size: 12px; color: var(--gray); }
+.success-countdown span { color: var(--indigo); font-weight: 700; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 28px; left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--navy); color: white; border-radius: 12px;
+  padding: 12px 22px; font-size: 13px; font-weight: 600;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999;
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1); white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+.toast.is-error { background: var(--error); }
+
+@media (max-width: 680px) {
+  .wrapper { grid-template-columns: 1fr; border-radius: 20px; }
+  .left { display: none; }
+  .right { padding: 36px 24px; border-radius: 20px; }
+}
+
+</style>

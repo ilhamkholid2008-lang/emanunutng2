@@ -26,7 +26,7 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 5%; height: 68px;
-  background: rgba(24, 147, 241, 1);
+  background: rgba(10, 60, 140, 0.55);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(246, 246, 246, 0.07);
 }
@@ -53,23 +53,23 @@ nav {
 
 #home {
   min-height: 100vh;
+  height: 100vh; 
   background: 
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url('balai-kota.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-
+  background-attachment: fixed ;
   display: flex;
   align-items: center;
   padding: 70px 5% 60px;
-  border-bottom: none;
   position: relative;
   overflow: hidden;
-
-
+  margin-bottom: 0; 
 }
+
+
 .hero-bg-decor { position: absolute; inset: 0; pointer-events: none; }
 .hero-bg-decor::before {
   content: ''; position: absolute; top: -150px; right: -150px;
@@ -561,6 +561,9 @@ section { padding: 90px 5%; }
 .hero-v2 {
   text-align: center;
   padding-top: 140px;
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .hero-v2 .hero-inner {
@@ -1039,3 +1042,397 @@ html {
 
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
+
+/* new card */
+
+/* ===== FITUR SLIDER ===== */
+#fitur {
+  background: #f8faff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#fitur h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.features-slider {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 20px 4px 30px;
+  flex: 1;
+  cursor: grab;
+}
+
+.features-slider:active {
+  cursor: grabbing;
+}
+
+.features-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.card {
+  min-width: 240px;
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+  background: white;
+  border-radius: 20px;
+  padding: 28px 22px 22px;
+  text-align: left;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  border: 1.5px solid rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* ICON WRAP */
+.card-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: white;
+  margin-bottom: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+/* TAG kecil atas */
+.card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.card p {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.card-footer {
+  margin-top: 6px;
+}
+
+.card-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ARROW BUTTONS */
+.slider-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+  color: #333;
+}
+
+.slider-arrow:hover {
+  background: #1893f1;
+  color: white;
+  transform: scale(1.08);
+}
+
+/* DOTS */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.dot-item {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: background 0.3s, width 0.3s;
+  cursor: pointer;
+}
+
+.dot-item.active {
+  background: #1893f1;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* new navbar */
+
+/* ===== NAVBAR BARU ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%; height: 68px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Saat scroll — jadi lebih gelap & solid */
+nav.scrolled {
+  background: rgba(33, 33, 33, 0.92);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Brand */
+.nav-brand {
+  display: flex; align-items: center; gap: 12px; text-decoration: none;
+}
+
+.nav-title {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.3px;
+}
+
+.nav-title span {
+  background: linear-gradient(90deg, #f9f9f9, #484747);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex; gap: 8px; list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  position: relative;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 14px; right: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+  background: rgba(255,255,255,0.08);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Tombol Masuk */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #000000, #322e2e);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 22px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+  opacity: 0.95;
+}
+
+.nav-cta:hover::before {
+  opacity: 1;
+}
+
+/* new frame iphone */
+
+/* ===== IPHONE MOCKUP BARU ===== */
+.iphone-mockup {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.iphone-frame-new {
+  width: 260px;
+  height: 530px;
+  background: linear-gradient(160deg, #3a3a3c 0%, #1c1c1e 60%, #111 100%);
+  border-radius: 52px;
+  border: 2px solid rgba(255,255,255,0.12);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 50px 100px rgba(0,0,0,0.7),
+    0 0 60px rgba(56,189,248,0.1);
+  padding: 12px;
+  position: relative;
+}
+
+/* Tombol samping */
+.btn-side {
+  position: absolute;
+  background: #2a2a2c;
+  border-radius: 3px;
+}
+.btn-side.silent   { left:-3px; top:90px;  width:3px; height:26px; }
+.btn-side.vol-up   { left:-3px; top:132px; width:3px; height:42px; }
+.btn-side.vol-down { left:-3px; top:188px; width:3px; height:42px; }
+.btn-side.power    { right:-3px; top:140px; width:3px; height:60px; }
+
+/* Layar */
+.dynamic-island-new {
+  width: 90px;
+  height: 26px;
+  background: #000;
+  border-radius: 20px;
+  position: absolute; /* ← absolute biar nempel di atas gambar */
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.iphone-screen-new {
+  width: 100%;
+  height: 100%;
+  border-radius: 42px;
+  overflow: hidden;
+  background: #000;
+  position: relative; /* ← pastikan ini relative */
+}
+
+/* Hapus flex-direction column, biarkan slider isi full */
+.screen-slider {
+  display: flex;
+  flex-direction: row;
+  width: 400%;
+  height: 100%; /* ← full height layar */
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.screen-slide {
+  width: 25%; /* 100% / jumlah slide */
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.screen-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dots */
+.screen-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 0;
+  background: rgba(0,0,0,0.5);
+  flex-shrink: 0;
+}
+
+.sdot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transition: background 0.3s, width 0.3s;
+  cursor: pointer;
+}
+
+.sdot.active {
+  background: white;
+  width: 18px;
+  border-radius: 3px;
+}
+
+/* Glow di bawah iPhone */
+.iphone-glow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(56,189,248,0.4) 0%, transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+  

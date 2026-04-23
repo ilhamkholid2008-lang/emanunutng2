@@ -26,7 +26,9 @@
     <li><a href="#unduh">Unduh</a></li>
   </ul>
 
-  <a href="login.html" class="nav-cta">Masuk</a>
+  <a href="login.html" class="nav-cta">
+  <i class="fa-solid fa-right-to-bracket"></i> Masuk
+</a>
 </nav>
 
 <!-- HERO V2 -->
@@ -56,71 +58,152 @@
     </div>
 
     <div class="hero-visual center">
-      <div class="iphone-wrap">
-        <div class="iphone-frame">
-          <div class="iphone-screen">
-            <img src="portal pegawai.jpg" style="width:100%;height:100%;object-fit:cover;">
+  <div class="iphone-mockup">
+    
+    <!-- Frame iPhone -->
+    <div class="iphone-frame-new">
+      
+      <!-- Tombol samping -->
+      <div class="btn-side silent"></div>
+      <div class="btn-side vol-up"></div>
+      <div class="btn-side vol-down"></div>
+      <div class="btn-side power"></div>
+
+      <!-- Layar -->
+      <div class="iphone-screen-new">
+        <!-- Dynamic Island -->
+        <div class="dynamic-island-new"></div>
+
+        <!-- Slide gambar -->
+        <div class="screen-slider" id="screenSlider">
+          <div class="screen-slide">
+            <img src="gmbrbaru1.jpeg" alt="Screenshot 1">
+          </div>
+          <div class="screen-slide">
+            <img src="gambarbaru2.jpeg" alt="Screenshot 2">
+          </div>
+          <div class="screen-slide">
+            <img src="gambarbaru3.jpeg" alt="Screenshot 3">
+          </div>
+          <div class="screen-slide">
+            <img src="gambarbaru4.jpeg" alt="Screenshot 4">
           </div>
         </div>
+
+        <!-- Dots indicator -->
+        <div class="screen-dots" id="screenDots">
+          <span class="sdot active"></span>
+          <span class="sdot"></span>
+          <span class="sdot"></span>
+          <span class="sdot"></span>
+        </div>
+
       </div>
     </div>
 
+    <!-- Glow efek bawah -->
+    <div class="iphone-glow"></div>
   </div>
+</div>
 </section>
 
 <!-- FITUR -->
 
-    <section id="fitur">
+   <section id="fitur">
   <div class="container">
-    
+
     <p class="label">FITUR UNGGULAN</p>
-    
     <h2>Semua Layanan ASN dalam Satu Aplikasi</h2>
-    
     <p class="desc">
-      Berbagai fitur terintegrasi untuk mendukung kinerja dan layanan 
+      Berbagai fitur terintegrasi untuk mendukung kinerja dan layanan
       kepegawaian ASN Kota Balikpapan.
     </p>
 
-    <div class="features-slider">
+    <div class="slider-wrapper">
+      <button class="slider-arrow left" id="prevBtn">&#8592;</button>
 
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
-        <h3>eKinerja</h3>
-        <p>Integrasi Aplikasi Pelaporan Kinerja ASN secara digital.</p>
+      <div class="features-slider" id="featuresSlider">
+
+        <div class="card">
+          <div class="card-icon-wrap" style="background: linear-gradient(135deg,#4f8ef7,#1a5fd4)">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <span class="card-tag">Kinerja</span>
+          <h3>eKinerja</h3>
+          <p>Integrasi Aplikasi Pelaporan Kinerja ASN secara digital dan real-time.</p>
+          <div class="card-footer">
+            <span class="card-badge" style="background:#e8f0ff;color:#1a5fd4">Produktivitas</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap" style="background: linear-gradient(135deg,#f7724f,#d43b1a)">
+            <i class="fa-solid fa-pen-nib"></i>
+          </div>
+          <span class="card-tag">Surat</span>
+          <h3>eOffice</h3>
+          <p>Integrasi aplikasi persuratan elektronik yang cepat dan efisien.</p>
+          <div class="card-footer">
+            <span class="card-badge" style="background:#fff0eb;color:#d43b1a">Administrasi</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap" style="background: linear-gradient(135deg,#2ecc71,#1a9e52)">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <span class="card-tag">Absensi</span>
+          <h3>Presensi</h3>
+          <p>Presensi berbasis GPS yang akurat dan terverifikasi otomatis.</p>
+          <div class="card-footer">
+            <span class="card-badge" style="background:#e6f9ef;color:#1a9e52">Kehadiran</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap" style="background: linear-gradient(135deg,#f7c94f,#d4991a)">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <span class="card-tag">Event</span>
+          <h3>Kegiatan</h3>
+          <p>Presensi event real-time dan manajemen jadwal kegiatan dinas.</p>
+          <div class="card-footer">
+            <span class="card-badge" style="background:#fffbe6;color:#d4991a">Jadwal</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap" style="background: linear-gradient(135deg,#a855f7,#7e22ce)">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <span class="card-tag">Email</span>
+          <h3>Email ASN</h3>
+          <p>Email resmi ASN terintegrasi langsung dalam satu platform terpadu.</p>
+          <div class="card-footer">
+            <span class="card-badge" style="background:#f5ebff;color:#7e22ce">Komunikasi</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap" style="background: linear-gradient(135deg,#f74f9e,#b01a6c)">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <span class="card-tag">Data</span>
+          <h3>Simpeg</h3>
+          <p>Data ASN terintegrasi dan lengkap, dapat diakses kapan saja.</p>
+          <div class="card-footer">
+            <span class="card-badge" style="background:#ffebf4;color:#b01a6c">Kepegawaian</span>
+          </div>
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
-        <h3>eOffice</h3>
-        <p>Integrasi aplikasi persuratan.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
-        <h3>Presensi</h3>
-        <p>Presensi berbasis GPS.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-calendar-days"></i></div>
-        <h3>Kegiatan</h3>
-        <p>Presensi event real-time.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-envelope"></i></div>
-        <h3>Email</h3>
-        <p>Email resmi ASN.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-users"></i></div>
-        <h3>Simpeg</h3>
-        <p>Data ASN terintegrasi.</p>
-      </div>
-
+      <button class="slider-arrow right" id="nextBtn">&#8594;</button>
     </div>
+
+    <!-- Dots indicator -->
+    <div class="slider-dots" id="sliderDots"></div>
+
   </div>
 </section>
 <!-- TENTANG -->
