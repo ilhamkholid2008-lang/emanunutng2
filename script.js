@@ -115,3 +115,58 @@ sdots.forEach((dot, i) => dot.addEventListener('click', () => goToScreen(i)));
 
 // Auto slide tiap 3 detik
 setInterval(() => goToScreen(screenIndex + 1), 3000);
+
+// new section tentang
+/* tentang.js — Animasi scroll reveal untuk section Tentang */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Elemen yang akan di-animate saat masuk viewport
+  const animTargets = document.querySelectorAll(
+    '.t-header, .t-rule, .t-left, .t-right, .t-footer-strip'
+  );
+
+  // Set initial state
+  animTargets.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
+  });
+
+  // Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  animTargets.forEach(el => observer.observe(el));
+
+  // Animasi timeline items satu per satu
+  const timelineItems = document.querySelectorAll('.t-titem');
+  timelineItems.forEach((item, i) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(20px)';
+    item.style.transition = `opacity 0.5s ease ${0.3 + i * 0.12}s, transform 0.5s ease ${0.3 + i * 0.12}s`;
+  });
+
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        timelineItems.forEach(item => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateX(0)';
+        });
+        timelineObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+
+  const timeline = document.querySelector('.t-timeline');
+  if (timeline) timelineObserver.observe(timeline);
+
+});
