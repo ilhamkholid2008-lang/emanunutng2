@@ -3,251 +3,577 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login – eManuntung</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <title>Masuk – eManuntung</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #ffffff;
+      --blue-hover: #f6f6f6;
+      --blue-pale: #eff6ff;
+      --blue-pale2: #dbeafe;
+      --navy: #1e3a8a;
+      --text: #0f172a;
+      --text2: #475569;
+      --text3: #94a3b8;
+      --border: #e2e8f0;
+      --border2: #cbd5e1;
+      --white: #ffffff;
+      --surface: #f8fafc;
+      --error: #ef4444;
+      --success: #22c55e;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      background: var(--white);
+      overflow: hidden;
+    }
 
-:root {
-  --navy: #0f172a;
-  --blue: #1d4ed8;
-  --sky: #38bdf8;
-  --indigo: #6366f1;
-  --gray: #64748b;
-  --error: #ef4444;
-}
+    /* ====== LEFT PANEL ====== */
+    .panel-left {
+      flex: 0 0 52%;
+      background: 
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('balaikota2.png') center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 52px 60px;
+    }
+    .panel-left::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.07);
+      top: -200px; right: -200px;
+      pointer-events: none;
+    }
+    .panel-left::after {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.05);
+      bottom: -140px; left: -100px;
+      pointer-events: none;
+    }
+    .deco-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.05);
+      pointer-events: none;
+    }
+    .deco-ring.r1 { width: 300px; height: 300px; top: 30px; right: 30px; }
+    .deco-ring.r2 { width: 180px; height: 180px; bottom: 200px; left: 40px; }
 
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url('balai-kota.png') center/cover no-repeat fixed;
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px; position: relative; overflow: hidden;
-}
+    /* Brand */
+    .left-brand {
+      display: flex; align-items: center; gap: 12px;
+      position: relative; z-index: 2;
+      text-decoration: none;
+    }
+    .left-brand img { width: 46px; height: 46px; }
+    .left-brand-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 700;
+      color: white; letter-spacing: -0.3px;
+    }
+    .left-brand-name span { opacity: 0.7; }
 
-/* Grid pattern sama kayak hero */
-body::before {
-  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
+    /* Center */
+    .left-center {
+      position: relative; z-index: 2;
+      flex: 1;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 40px 0;
+      animation: fadeUp 0.8s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .left-tagline {
+      font-size: 11.5px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: rgb(255, 255, 255);
+      margin-bottom: 18px;
+    }
+    .left-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 2.8vw, 40px);
+      font-weight: 700; color: white;
+      line-height: 1.2; margin-bottom: 22px;
+      letter-spacing: -0.6px;
+    }
+    .left-headline em {
+      font-style: normal;
+      color: #fbfdfe;
+    }
+    .left-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8; max-width: 390px;
+      margin-bottom: 44px;
+    }
 
-.wrapper {
-  position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr 1fr;
-  max-width: 900px; width: 100%; border-radius: 24px; overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
-}
+    /* Stats */
+    .left-stats {
+      display: flex; gap: 0;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .lstat {
+      flex: 1;
+      display: flex; flex-direction: column; gap: 5px;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .lstat:last-child { border-right: none; }
+    .lstat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 700; color: white;
+    }
+    .lstat-label { font-size: 11.5px; color: rgba(255,255,255,0.5); font-weight: 500; }
 
-/* ===== KIRI ===== */
-.left {
-  background: rgba(10, 30, 80, 0.55);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(255,255,255,0.08);
-  padding: 48px 40px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  position: relative; overflow: hidden;
-}
+    /* Chips */
+    .left-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 30px;
+      padding: 6px 13px;
+      font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.82);
+      transition: background 0.2s;
+    }
+    .chip:hover { background: rgba(255,255,255,0.15); }
+    .chip i { font-size: 10px; }
 
-.left::before {
-  content: ''; position: absolute; top: -100px; right: -100px;
-  width: 300px; height: 300px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
+    /* Footer left */
+    .left-footer {
+      position: relative; z-index: 2;
+    }
+    .left-footer-seal {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 9px 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 12.5px; color: rgba(255,255,255,0.5);
+    }
+    .left-footer-seal i { font-size: 13px; color: rgba(255,255,255,0.55); }
 
-.left::after {
-  content: ''; position: absolute; bottom: -80px; left: -80px;
-  width: 250px; height: 250px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
-  pointer-events: none;
-}
+    /* ====== RIGHT PANEL ====== */
+    .panel-right {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 48px 60px;
+      background: white;
+      overflow-y: auto;
+    }
+    .right-inner {
+      width: 100%; max-width: 380px;
+      animation: fadeRight 0.65s ease both;
+    }
+    @keyframes fadeRight {
+      from { opacity: 0; transform: translateX(18px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
 
-.brand { display: flex; align-items: center; gap: 12px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 13px; font-weight: 600;
+      color: var(--text2); text-decoration: none;
+      margin-bottom: 36px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--blue); }
+    .back-link i { font-size: 11px; }
 
-.brand-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px; font-weight: 700; color: white;
-}
+    .right-header { margin-bottom: 32px; }
+    .right-eyebrow {
+      font-size: 11.5px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 10px;
+    }
+    .right-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .right-sub {
+      font-size: 14px; color: var(--text2); line-height: 1.65;
+    }
 
-.brand-name span {
-  background: linear-gradient(90deg, #38bdf8, #818cf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    /* Form */
+    .form-group { margin-bottom: 18px; }
+    .form-label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .input-wrap { position: relative; }
+    .input-icon {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--text3); font-size: 14px;
+      pointer-events: none; transition: color 0.2s; z-index: 1;
+    }
+    .form-input {
+      width: 100%; height: 48px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 0 44px 0 42px;
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-weight: 500;
+      outline: none; transition: all 0.22s;
+    }
+    .form-input::placeholder { color: var(--text3); font-weight: 400; }
+    .form-input:hover { border-color: var(--border2); }
+    .form-input:focus {
+      border-color: var(--blue);
+      background: var(--blue-pale);
+      box-shadow: 0 0 0 3.5px rgba(37,99,235,0.1);
+    }
+    .input-wrap:focus-within .input-icon { color: var(--blue); }
+    .form-input.err { border-color: var(--error); background: #fef2f2; box-shadow: 0 0 0 3px rgba(239,68,68,0.08); }
 
-.left-body { margin-top: 48px; }
+    .err-msg {
+      font-size: 12px; color: var(--error);
+      margin-top: 6px; display: none;
+      align-items: center; gap: 5px; font-weight: 500;
+    }
+    .err-msg.show { display: flex; }
+    .err-msg i { font-size: 11px; }
 
-.left-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 28px; font-weight: 700;
-  color: white; line-height: 1.25; margin-bottom: 12px;
-}
+    .toggle-pass {
+      position: absolute; right: 12px; top: 50%;
+      transform: translateY(-50%);
+      background: none; border: none;
+      color: var(--text3); cursor: pointer;
+      font-size: 14px; padding: 6px;
+      transition: color 0.2s;
+    }
+    .toggle-pass:hover { color: var(--text); }
 
-.left-title .accent {
-  background: linear-gradient(90deg, #38bdf8, #818cf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .form-row {
+      display: flex; align-items: center;
+      justify-content: space-between; margin-bottom: 24px;
+    }
+    .cb-wrap {
+      display: flex; align-items: center; gap: 8px; cursor: pointer;
+    }
+    .cb-wrap input { accent-color: var(--blue); width: 15px; height: 15px; cursor: pointer; }
+    .cb-wrap span { font-size: 13px; color: var(--text2); user-select: none; }
+    .forgot-link {
+      font-size: 13px; color: var(--blue);
+      text-decoration: none; font-weight: 600;
+    }
+    .forgot-link:hover { text-decoration: underline; }
 
-.left-desc { color: rgba(255,255,255,0.5); font-size: 13.5px; line-height: 1.7; }
+    /* Submit btn */
+    .btn-submit {
+      width: 100%; height: 50px;
+      background: linear-gradient(135deg, #000000, #060606);
+      color: white; border: none; border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(37,99,235,0.38);
+      letter-spacing: 0.2px;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,99,235,0.48); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit.loading { pointer-events: none; opacity: 0.85; }
+    .btn-text { transition: opacity 0.2s; }
+    .btn-spinner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; }
+    .btn-submit.loading .btn-text { opacity: 0; }
+    .btn-submit.loading .btn-spinner { opacity: 1; }
+    .spin {
+      width: 20px; height: 20px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: white; border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-.left-features { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+    /* Divider */
+    .divider {
+      display: flex; align-items: center; gap: 12px; margin: 22px 0;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .divider span { font-size: 12px; color: var(--text3); white-space: nowrap; }
 
-.feat-item { display: flex; align-items: center; gap: 12px; }
+    /* SSO */
+    .btn-sso {
+      width: 100%; height: 48px;
+      background: white; border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-weight: 600; color: var(--text);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: all 0.2s;
+    }
+    .btn-sso:hover { border-color: var(--blue); background: var(--blue-pale); color: var(--blue); }
+    .btn-sso i { font-size: 15px; color: var(--blue); }
 
-.feat-dot {
-  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  display: flex; align-items: center; justify-content: center; font-size: 16px;
-}
+    /* Footer */
+    .right-footer { margin-top: 26px; text-align: center; }
+    .right-footer p { font-size: 12.5px; color: var(--text3); line-height: 1.75; }
+    .right-footer a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .security-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; margin-top: 14px;
+      font-size: 12px; color: var(--text3);
+    }
+    .security-row i { font-size: 11px; color: var(--success); }
 
-.feat-text { color: rgba(255,255,255,0.6); font-size: 13px; }
+    /* Toast */
+    .toast {
+      position: fixed; top: 20px; right: 20px; z-index: 999;
+      background: white; border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+      font-size: 13.5px; font-weight: 500; color: var(--text);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateX(120%);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+      max-width: 300px;
+    }
+    .toast.show { transform: translateX(0); }
+    .toast.error { border-color: #fca5a5; }
+    .toast.success { border-color: #86efac; }
+    .toast-icon { font-size: 16px; flex-shrink: 0; }
+    .toast.error .toast-icon { color: var(--error); }
+    .toast.success .toast-icon { color: var(--success); }
 
-.left-footer { color: rgba(255,255,255,0.2); font-size: 11px; }
+    @media (max-width: 900px) {
+      .panel-left { display: none; }
+      .panel-right { padding: 40px 28px; }
+    }
+    @media (max-width: 480px) {
+      .panel-right { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
 
-/* ===== KANAN ===== */
-.right {
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px);
-  padding: 48px 44px;
-  display: flex; flex-direction: column; justify-content: center;
-}
+<div class="toast" id="toast">
+  <i class="toast-icon" id="toastIcon"></i>
+  <span id="toastMsg"></span>
+</div>
 
-.form-eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-  color: var(--sky); text-transform: uppercase; margin-bottom: 8px;
-}
+<!-- LEFT -->
+<div class="panel-left">
+  <div class="deco-ring r1"></div>
+  <div class="deco-ring r2"></div>
 
-.form-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 6px;
-}
+  <a href="index.html" class="left-brand">
+    <img src="logo emanuntung.svg" alt="logo" onerror="this.style.display='none'">
+    <span class="left-brand-name">e<span>Manuntung</span></span>
+  </a>
 
-.form-sub { font-size: 13px; color: var(--gray); margin-bottom: 28px; }
+  <div class="left-center">
+    <p class="left-tagline">Portal Kepegawaian Digital</p>
+    <h1 class="left-headline">
+      Satu Portal untuk<br>
+      Semua Layanan <em>ASN</em><br>
+      Kota Balikpapan
+    </h1>
+    <p class="left-desc">
+      Kelola kinerja, presensi, persuratan, dan data kepegawaian
+      dalam satu platform terintegrasi yang modern dan aman.
+    </p>
 
-.form-group { margin-bottom: 16px; }
+    <div class="left-stats">
+      <div class="lstat">
+        <span class="lstat-num">6.000+</span>
+        <span class="lstat-label">ASN Terdaftar</span>
+      </div>
+      <div class="lstat">
+        <span class="lstat-num">6</span>
+        <span class="lstat-label">Layanan</span>
+      </div>
+      <div class="lstat">
+        <span class="lstat-num">2021</span>
+        <span class="lstat-label">Sejak Tahun</span>
+      </div>
+    </div>
 
-.form-label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    <div class="left-chips" style="margin-top:24px">
+      <span class="chip"><i class="fa-solid fa-chart-line"></i> eKinerja</span>
+      <span class="chip"><i class="fa-solid fa-location-dot"></i> Presensi GPS</span>
+      <span class="chip"><i class="fa-solid fa-pen-nib"></i> eOffice</span>
+      <span class="chip"><i class="fa-solid fa-users"></i> Simpeg</span>
+      <span class="chip"><i class="fa-solid fa-envelope"></i> Email ASN</span>
+    </div>
+  </div>
 
-.input-wrap { position: relative; }
+  <div class="left-footer">
+    <div class="left-footer-seal">
+      <i class="fa-solid fa-building-columns"></i>
+      BKPSDM Kota Balikpapan &nbsp;·&nbsp; © 2026
+    </div>
+  </div>
+</div>
 
-.form-input {
-  width: 100%; padding: 11px 14px;
-  border: 1.5px solid #e2e8f0; border-radius: 10px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px; color: var(--navy);
-  background: #f8faff; outline: none;
-  transition: border-color .2s, box-shadow .2s, background .2s;
-}
+<!-- RIGHT -->
+<div class="panel-right">
+  <div class="right-inner">
 
-.form-input:focus {
-  border-color: var(--sky);
-  box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
-  background: white;
-}
+    <a href="index.html" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+    </a>
 
-.form-input.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
-.form-input.has-toggle { padding-right: 44px; }
+    <div class="right-header">
+      <p class="right-eyebrow">Portal Resmi · Pemkot Balikpapan</p>
+      <h2 class="right-title">Masuk ke Akun Anda</h2>
+      <p class="right-sub">Gunakan NIP dan kata sandi yang terdaftar di sistem kepegawaian.</p>
+    </div>
 
-.toggle-pw {
-  position: absolute; right: 13px; top: 50%; transform: translateY(-50%);
-  background: none; border: none; cursor: pointer; font-size: 16px;
-  color: var(--gray); padding: 0;
-}
+    <form id="loginForm" novalidate>
 
-.error-msg { font-size: 12px; color: var(--error); margin-top: 5px; display: none; }
-.error-msg.show { display: block; }
+      <div class="form-group">
+        <label class="form-label" for="nip">Nomor Induk Pegawai (NIP)</label>
+        <div class="input-wrap">
+          <input type="text" id="nip" class="form-input"
+            placeholder="Contoh: 19850101 200801 1 001"
+            maxlength="22" inputmode="numeric"/>
+          <i class="input-icon fa-solid fa-id-card"></i>
+        </div>
+        <p class="err-msg" id="nipErr"><i class="fa-solid fa-circle-xmark"></i> NIP tidak boleh kosong</p>
+      </div>
 
-.form-row {
-  display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
-}
+      <div class="form-group">
+        <label class="form-label" for="password">Kata Sandi</label>
+        <div class="input-wrap">
+          <input type="password" id="password" class="form-input" placeholder="Masukkan kata sandi"/>
+          <i class="input-icon fa-solid fa-lock"></i>
+          <button type="button" class="toggle-pass" id="togglePass">
+            <i class="fa-solid fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+        <p class="err-msg" id="passErr"><i class="fa-solid fa-circle-xmark"></i> Kata sandi tidak boleh kosong</p>
+      </div>
 
-.checkbox-wrap { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-.checkbox-wrap input { accent-color: var(--indigo); width: 15px; height: 15px; }
-.checkbox-label { font-size: 13px; color: var(--gray); }
+      <div class="form-row">
+        <label class="cb-wrap">
+          <input type="checkbox" id="remember">
+          <span>Ingat saya</span>
+        </label>
+        <a href="#" class="forgot-link">Lupa kata sandi?</a>
+      </div>
 
-.forgot-link {
-  font-size: 13px; color: var(--indigo); text-decoration: none; font-weight: 600;
-}
-.forgot-link:hover { text-decoration: underline; }
+      <button type="submit" class="btn-submit" id="btnSubmit">
+        <span class="btn-text"><i class="fa-solid fa-right-to-bracket" style="margin-right:8px"></i>Masuk</span>
+        <span class="btn-spinner"><span class="spin"></span></span>
+      </button>
 
-.btn-login {
-  width: 100%; padding: 13px;
-  background: linear-gradient(135deg, var(--sky), var(--indigo));
-  color: white; border: none; border-radius: 10px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px; font-weight: 700; cursor: pointer;
-  box-shadow: 0 4px 20px rgba(56,189,248,0.35);
-  transition: transform .2s, box-shadow .2s, opacity .2s;
-}
+    </form>
 
-.btn-login:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(56,189,248,0.45);
-}
+    <div class="divider"><span>atau masuk dengan</span></div>
 
-.btn-login:disabled { opacity: .7; cursor: not-allowed; transform: none; }
-.btn-login .spinner {
-  display: none; width: 18px; height: 18px;
-  border: 2px solid rgba(255,255,255,0.4); border-top-color: white;
-  border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto;
-}
-.btn-login.loading .btn-text { display: none; }
-.btn-login.loading .spinner { display: block; }
-@keyframes spin { to { transform: rotate(360deg); } }
+    <button class="btn-sso" id="btnSSO">
+      <i class="fa-solid fa-building-columns"></i>
+      SSO Pemkot Balikpapan
+    </button>
 
-.divider {
-  display: flex; align-items: center; gap: 12px;
-  margin: 20px 0; color: #cbd5e1; font-size: 12px;
-}
-.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
+    <div class="right-footer">
+      <p>Butuh bantuan? Hubungi <a href="mailto:admin@balikpapan.go.id">admin@balikpapan.go.id</a><br>atau Tim IT BKPSDM Kota Balikpapan</p>
+      <div class="security-row">
+        <i class="fa-solid fa-shield-halved"></i>
+        Koneksi aman &amp; terenkripsi SSL
+      </div>
+    </div>
 
-.back-link { text-align: center; margin-top: 14px; font-size: 13px; color: var(--gray); }
-.back-link a { color: var(--indigo); font-weight: 700; text-decoration: none; }
-.back-link a:hover { text-decoration: underline; }
+  </div>
+</div>
 
-/* Success screen */
-.success-screen {
-  display: none; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 20px;
-}
-.success-icon {
-  width: 72px; height: 72px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--sky), var(--indigo));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 32px; margin: 0 auto 20px;
-  animation: popIn .4s cubic-bezier(.34,1.56,.64,1);
-}
-@keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
-.success-title { font-family: 'Space Grotesk',sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-.success-sub { font-size: 14px; color: var(--gray); margin-bottom: 24px; line-height: 1.6; }
-.success-countdown { font-size: 12px; color: var(--gray); }
-.success-countdown span { color: var(--indigo); font-weight: 700; }
+<script>
+  // Toggle password
+  document.getElementById('togglePass').addEventListener('click', () => {
+    const p = document.getElementById('password');
+    const i = document.getElementById('eyeIcon');
+    const show = p.type === 'password';
+    p.type = show ? 'text' : 'password';
+    i.className = show ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+  });
 
-/* Toast */
-.toast {
-  position: fixed; bottom: 28px; left: 50%;
-  transform: translateX(-50%) translateY(80px);
-  background: var(--navy); color: white; border-radius: 12px;
-  padding: 12px 22px; font-size: 13px; font-weight: 600;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 999;
-  transition: transform .3s cubic-bezier(.34,1.56,.64,1); white-space: nowrap;
-}
-.toast.show { transform: translateX(-50%) translateY(0); }
-.toast.is-error { background: var(--error); }
+  // Toast
+  function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    document.getElementById('toastIcon').className = type === 'success'
+      ? 'toast-icon fa-solid fa-circle-check'
+      : 'toast-icon fa-solid fa-circle-exclamation';
+    t.className = 'toast ' + type + ' show';
+    clearTimeout(t._t);
+    t._t = setTimeout(() => t.classList.remove('show'), 3500);
+  }
 
-@media (max-width: 680px) {
-  .wrapper { grid-template-columns: 1fr; border-radius: 20px; }
-  .left { display: none; }
-  .right { padding: 36px 24px; border-radius: 20px; }
-}
+  // Input cleanup
+  const nipInput  = document.getElementById('nip');
+  const passInput = document.getElementById('password');
 
-</style>
+  nipInput.addEventListener('input', () => {
+    nipInput.value = nipInput.value.replace(/[^\d\s]/g, '');
+    nipInput.classList.remove('err');
+    document.getElementById('nipErr').classList.remove('show');
+  });
+  passInput.addEventListener('input', () => {
+    passInput.classList.remove('err');
+    document.getElementById('passErr').classList.remove('show');
+  });
+
+  // Submit
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nip  = nipInput.value.trim();
+    const pass = passInput.value;
+    let ok = true;
+
+    if (!nip) { nipInput.classList.add('err'); document.getElementById('nipErr').classList.add('show'); ok = false; }
+    if (!pass) { passInput.classList.add('err'); document.getElementById('passErr').classList.add('show'); ok = false; }
+    if (!ok) return;
+
+    const btn = document.getElementById('btnSubmit');
+    btn.classList.add('loading');
+    await new Promise(r => setTimeout(r, 1800));
+    btn.classList.remove('loading');
+
+    // Ganti dengan fetch() ke API backend kamu
+    if (nip.replace(/\s/g,'') === '123456789' && pass === 'admin123') {
+      showToast('Login berhasil! Mengalihkan...', 'success');
+      setTimeout(() => window.location.href = 'dashboard.html', 1200);
+    } else {
+      showToast('NIP atau kata sandi salah. Silakan coba lagi.', 'error');
+      nipInput.classList.add('err');
+      passInput.classList.add('err');
+    }
+  });
+
+  // SSO
+  document.getElementById('btnSSO').addEventListener('click', () => {
+    showToast('Menghubungkan ke SSO Pemkot...', 'success');
+    // window.location.href = 'https://sso.balikpapan.go.id';
+  });
+</script>
+</body>
+</html>

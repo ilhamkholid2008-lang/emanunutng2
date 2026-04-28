@@ -37,7 +37,7 @@ nav {
   display: flex; align-items: center; justify-content: center;
   font-weight: 800; font-size: 15px; color: white;
 }
-.nav-title { color: white; font-weight: 700; font-size: 17px; font-family: 'Space Grotesk', sans-serif; }
+.nav-title { color: rgb(254, 254, 254); font-weight: 700; font-size: 17px; font-family: 'Space Grotesk', sans-serif; }
 .nav-title span { color: var(--gold); }
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
@@ -84,7 +84,7 @@ nav {
 .grid-pattern {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 50px 50px;
 }
@@ -95,7 +95,7 @@ nav {
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(0, 0, 0, 0.15); border: 1px solid rgba(226, 226, 226, 0.35);
+  background: rgba(3, 2, 2, 0.15); border: 1px solid rgba(226, 22, 22, 0.35);
   border-radius: 30px; padding: 6px 16px; margin-bottom: 24px;
   color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
 }
@@ -108,10 +108,10 @@ nav {
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(36px, 5vw, 56px); font-weight: 700;
-  line-height: 1.1; color: white; margin-bottom: 20px;
+  line-height: 1.1; color: rgb(255, 255, 255); margin-bottom: 20px;
 }
 .hero-title .accent { color: var(--gold); }
-.hero-desc { color: rgba(235, 235, 235, 0.7); font-size: 16px; line-height: 1.7; margin-bottom: 36px; max-width: 480px; }
+.hero-desc { color: rgb(253, 253, 253); font-size: 16px; line-height: 1.7; margin-bottom: 36px; max-width: 480px; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
@@ -122,27 +122,27 @@ nav {
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(242,201,76,0.4); }
 .btn-secondary {
   display: inline-flex; align-items: center; gap: 8px;
-  border: 1.5px solid rgba(255,255,255,0.3); color: white;
+  border: 1.5px solid rgb(255, 255, 255); color: rgb(255, 255, 255);
   padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px;
   text-decoration: none; transition: border-color .2s, background .2s;
 }
-.btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.07); }
+.btn-secondary:hover { border-color: rgb(255, 255, 255); background: rgba(255,255,255,0.07); }
 
 .hero-stats {
   display: flex; gap: 36px; margin-top: 44px;
-  padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--gold); }
-.stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.stat-label { font-size: 12px; color: rgb(255, 255, 255); margin-top: 2px; }
 
 
 .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
 .float-tag {
-  position: absolute; background: white; border-radius: 12px;
-  padding: 8px 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  position: absolute; background: rgb(255, 255, 255); border-radius: 12px;
+  padding: 8px 14px; box-shadow: 0 8px 30px rgba(255, 252, 252, 0.25);
   font-size: 11px; font-weight: 600; color: var(--navy);
   display: flex; align-items: center; gap: 6px; white-space: nowrap; z-index: 10;
-}
+} 
 .float-tag.top  { top: 10px; right: -20px; }
 .float-tag.bottom { bottom: 30px; left: -20px; }
 .tag-dot { width: 8px; height: 8px; border-radius: 50%; }
@@ -429,7 +429,7 @@ section { padding: 90px 5%; }
   background: #131314;
   padding: 60px 80px 20px;
   font-family: 'Inter', sans-serif;
-  color: #555;
+  color: #fafafa;
 }
 
 .footer-container {
@@ -493,7 +493,7 @@ section { padding: 90px 5%; }
 
 .footer-col ul li a {
   text-decoration: none;
-  color: #777;
+  color: #ffffff;
   transition: 0.3s;
 }
 
@@ -671,7 +671,7 @@ section { padding: 90px 5%; }
 /* label kecil atas */
 .label {
   display: inline-block;
-  background: #eee;
+  background:   #000000;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
@@ -679,7 +679,7 @@ section { padding: 90px 5%; }
   display: block;
   margin: 20px 0 10px;
   letter-spacing: 2px;
-  color: #888;
+  color: #000000;
   text-align: center;
   font-weight: 600;
   opacity: 0.7;
@@ -697,7 +697,7 @@ section { padding: 90px 5%; }
 .desc {
   max-width: 600px;
   margin: 0 auto 40px auto;
-  color: #666;
+  color: #000000;
   line-height: 1.6;
 }
 
@@ -747,7 +747,7 @@ section { padding: 90px 5%; }
 
 /* teks */
 .card p {
-  color: #666;
+  color: #000000;
   font-size: 14px;
 }
 
@@ -769,7 +769,7 @@ section { padding: 90px 5%; }
 }
 
 .icon i {
-  color: white;
+  color: rgb(240, 240, 240);
   font-size: 20px;
 }
 
@@ -803,7 +803,7 @@ section { padding: 90px 5%; }
 
 .card p {
   font-size: 14px;
-  color: #555;
+  color: #000000;
 }
 
 .tentang {
@@ -823,7 +823,7 @@ section { padding: 90px 5%; }
 .label {
   font-size: 12px;
   letter-spacing: 2px;
-  color: #aaa;
+  color: #ffffff;
   display: block;
   margin-bottom: 10px;
 }
@@ -831,11 +831,11 @@ section { padding: 90px 5%; }
 .tentang h2 {
   font-size: 32px;
   margin-bottom: 15px;
-  color: #7c43b5;
+  color: #000000;
 }
 
 .tentang p {
-  color: #555;
+  color: #fafafa;
   line-height: 1.7;
   margin-bottom: 25px;
 }
@@ -1047,7 +1047,7 @@ html {
 
 /* ===== FITUR SLIDER ===== */
 #fitur {
-  background: #010101;
+  background: #fffdfd;
   padding: 80px 20px;
   text-align: center;
 }
@@ -1450,7 +1450,7 @@ nav.scrolled {
   position: absolute;
   top: 0; left: 6%; right: 6%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(235, 234, 234, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgb(255, 255, 255), transparent);
 }
 
 .t-container {
@@ -1477,7 +1477,7 @@ nav.scrolled {
 .t-eyebrow-line {
   width: 32px;
   height: 1px;
-  background: rgba(189, 189, 189, 0.6);
+  background: rgb(252, 252, 252);
 }
 
 .t-eyebrow-text {
@@ -1485,7 +1485,7 @@ nav.scrolled {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(252, 251, 250, 0.8);
+  color: rgb(252, 251, 250);
 }
 
 .t-title {
@@ -1507,7 +1507,7 @@ nav.scrolled {
 
 .t-desc {
   font-size: 15px;
-  color: rgba(255,255,255,0.45);
+  color: rgb(255, 255, 255);
   line-height: 1.9;
   border-left: 2px solid rgba(197,162,99,0.3);
   padding-left: 20px;
@@ -1535,19 +1535,19 @@ nav.scrolled {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(234, 232, 230, 0.6);
+  color: rgb(255, 255, 255);
   margin-bottom: 24px;
 }
 
 .t-left p {
   font-size: 15px;
-  color: rgba(255,255,255,0.5);
+  color: rgb(255, 255, 255);
   line-height: 1.9;
   margin-bottom: 20px;
 }
 
 .t-left p strong {
-  color: rgba(255,255,255,0.85);
+  color: rgb(250, 247, 247);
   font-weight: 600;
 }
 
@@ -1557,7 +1557,7 @@ nav.scrolled {
   display: flex;
   flex-direction: column;
   gap: 1px;
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid rgb(251, 251, 251);
   border-radius: 16px;
   overflow: hidden;
 }
@@ -1567,21 +1567,21 @@ nav.scrolled {
   align-items: center;
   gap: 18px;
   padding: 18px 22px;
-  background: rgba(255,255,255,0.02);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0, 0, 0, 0.637);
+  border-bottom: 1px solid rgb(11, 10, 10);
   transition: background 0.2s;
 }
 
 .t-pillar:last-child { border-bottom: none; }
-.t-pillar:hover { background: rgba(197,162,99,0.05); }
+.t-pillar:hover { background: rgb(91, 86, 86); }
 
 .t-pillar-icon {
   width: 36px; height: 36px;
   border-radius: 10px;
-  background: rgba(197,162,99,0.1);
-  border: 1px solid rgba(197,162,99,0.2);
+  background: rgb(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex; align-items: center; justify-content: center;
-  color: rgba(244, 243, 242, 0.8);
+  color: rgb(0, 0, 0);
   font-size: 14px;
   flex-shrink: 0;
 }
@@ -1589,7 +1589,7 @@ nav.scrolled {
 .t-pillar span {
   font-size: 14px;
   font-weight: 500;
-  color: rgba(255,255,255,0.65);
+  color: rgb(255, 255, 255);
 }
 
 /* ── RIGHT: Timeline ── */
@@ -1606,8 +1606,8 @@ nav.scrolled {
   width: 1px;
   bottom: 8px;
   background: linear-gradient(180deg,
-    rgba(220, 217, 211, 0.4),
-    rgba(197,162,99,0.15),
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0.15),
     transparent
   );
 }
@@ -1624,7 +1624,7 @@ nav.scrolled {
 .t-tdot {
   width: 30px; height: 30px;
   border-radius: 50%;
-  border: 1px solid rgba(254, 247, 234, 0.4);
+  border: 1px solid rgba(248, 248, 248, 0.4);
   background: #0c0f14;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -1634,11 +1634,11 @@ nav.scrolled {
 
 .t-tdot i {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
 }
 
 .t-titem:hover .t-tdot {
-  background: rgba(197,162,99,0.15);
+  background: rgba(255, 254, 253, 0.15);
   border-color: rgba(255, 254, 251, 0.7);
 }
 
@@ -1660,7 +1660,7 @@ nav.scrolled {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: rgba(241, 239, 234, 0.6);
+  color: rgb(255, 255, 255);
   margin-bottom: 6px;
 }
 
@@ -1675,7 +1675,7 @@ nav.scrolled {
 
 .t-tdesc {
   font-size: 13.5px;
-  color: rgba(255,255,255,0.38);
+  color: rgb(255, 255, 255);
   line-height: 1.75;
 }
 
@@ -1683,7 +1683,7 @@ nav.scrolled {
 .t-footer-strip {
   margin-top: 80px;
   padding-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(112, 102, 102, 0.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1695,12 +1695,12 @@ nav.scrolled {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(16px, 2vw, 22px);
   font-style: italic;
-  color: rgba(255,255,255,0.25);
+  color: rgba(231, 229, 229, 0.922);
   max-width: 500px;
 }
 
 .t-footer-quote strong {
-  color: rgba(255,255,255,0.6);
+  color: rgba(239, 238, 238, 0.908);
   font-style: normal;
 }
 
@@ -1729,7 +1729,7 @@ nav.scrolled {
 
 .t-footer-seal-text span {
   font-size: 11px;
-  color: rgba(255,255,255,0.3);
+  color: rgba(237, 237, 237, 0.98);
 }
 
 /* ── RESPONSIVE ── */
