@@ -343,7 +343,7 @@ section { padding: 90px 5%; }
 .check-text { font-size: 14px; color: var(--gray); line-height: 1.6; }
 
 #unduh {
-  background: url('UNDUHPAGE.jpg') center/cover no-repeat;
+  background: url('balaikota2.png') center/cover no-repeat;
   position: relative;
   overflow: hidden;
   padding: 120px 20px;
@@ -1438,7 +1438,7 @@ nav.scrolled {
 
 /* new section tentang */
 #tentang {
-  background: linear-gradient(to bottom, #008080, #E0E0E0, #FFFFFF);
+  background: linear-gradient(to bottom, #1b4161, #16334a, #FFFFFF);
   padding: 120px 6%;
   position: relative;
   overflow: hidden;
@@ -1748,3 +1748,249 @@ nav.scrolled {
 );
   color: var(--blue);
 }
+
+/* space fitur */
+/* Jadi ini */
+#fitur {
+  background: #fffdfd;
+  padding: 80px 0;          /* ← hapus padding kiri-kanan */
+  text-align: center;
+}
+
+#fitur .container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;          /* ← padding hanya di container atas (label, h2, desc) */
+}
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  padding: 0;               /* ← pastikan nol */
+  width: 100%;              /* ← full width */
+}
+
+.features-slider {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 20px 20px 30px;  /* ← padding dalam slider buat breathing room card */
+  flex: 1;
+  cursor: grab;
+}
+
+/* test perbaikan section tentang */
+
+/* ===== SECTION TENTANG — FRESH GRADIENT ===== */
+#tentang {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 35%, #f5f0ff 70%, #eef6f0 100%);
+  padding: 120px 6%;
+  position: relative;
+  overflow: hidden;
+}
+
+#tentang::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 6%; right: 6%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4f6ef7, #a78bfa, transparent);
+}
+
+/* Eyebrow */
+.t-eyebrow-line { background: #4f6ef7; }
+.t-eyebrow-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #4f6ef7;
+}
+
+/* Title */
+.t-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.2;
+}
+.t-title em {
+  font-style: italic;
+  color: #4f6ef7;
+}
+
+/* Desc kanan */
+.t-desc {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.9;
+  border-left: 3px solid #4f6ef7;
+  padding-left: 20px;
+}
+
+/* Divider */
+.t-rule {
+  background: rgba(79, 110, 247, 0.15);
+}
+
+/* Section tag */
+.t-section-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #4f6ef7;
+  margin-bottom: 20px;
+}
+
+/* Body text kiri */
+.t-left p {
+  font-size: 15.5px;
+  color: #333;
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+.t-left p strong {
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+/* Pillars */
+.t-pillars {
+  border: 1.5px solid rgba(79, 110, 247, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.t-pillar {
+  background: rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(79, 110, 247, 0.1);
+  padding: 16px 20px;
+  transition: background 0.2s;
+}
+.t-pillar:hover { background: rgba(79, 110, 247, 0.06); }
+.t-pillar:last-child { border-bottom: none; }
+.t-pillar-icon {
+  background: linear-gradient(135deg, #e8f0fe, #c7d7fd);
+  border: none;
+  color: #4f6ef7;
+}
+.t-pillar span {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+/* Timeline */
+.t-timeline::before {
+  background: linear-gradient(180deg, #4f6ef7, #a78bfa, transparent);
+  opacity: 0.4;
+}
+.t-tdot {
+  background: white;
+  border: 2px solid #4f6ef7;
+}
+.t-tdot i { color: #4f6ef7; }
+.t-titem:hover .t-tdot { background: #e8f0fe; }
+.t-titem.active .t-tdot {
+  background: #4f6ef7;
+  border-color: #4f6ef7;
+  box-shadow: 0 0 14px rgba(79, 110, 247, 0.4);
+}
+.t-titem.active .t-tdot i { color: white; }
+
+.t-tyear {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #4f6ef7;
+  margin-bottom: 6px;
+}
+.t-ttitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.t-tdesc {
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.75;
+}
+
+/* Footer strip */
+.t-footer-strip {
+  border-top: 1px solid rgba(79, 110, 247, 0.15);
+}
+.t-footer-quote {
+  font-size: clamp(15px, 2vw, 20px);
+  font-style: italic;
+  color: #6d6d6d;
+}
+.t-footer-quote strong {
+  color: #1a1a2e;
+  font-style: normal;
+}
+.t-footer-seal {
+  background: white;
+  border: 1.5px solid rgba(79, 110, 247, 0.2);
+  border-radius: 12px;
+}
+.t-footer-seal i { color: #4f6ef7; }
+.t-footer-seal-text strong { color: #1a1a2e; font-size: 13px; }
+.t-footer-seal-text span { color: #666; font-size: 11px; }
+
+.tentang-text .section-title {
+  color: #1a1a2e;
+}
+
+.tentang-text .section-sub {
+  color: #444;
+}
+
+/* test mobile responsive */
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  nav {
+    padding: 0 4%;
+    height: 60px;
+  }
+  .nav-links { display: none; }
+  .nav-cta {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  /* HERO */
+  #home {
+    padding: 80px 5% 50px;
+    background-attachment: scroll; /* fix parallax di mobile */
+    min-height: 100svh;
+  }
+  .hero-v2 .hero-inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .hero-title {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+  .hero-desc {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }  }

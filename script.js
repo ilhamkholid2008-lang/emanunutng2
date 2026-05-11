@@ -95,7 +95,7 @@ slider.addEventListener('mousemove', e => {
 slider.addEventListener('scroll', () => {
   currentIndex = Math.round(slider.scrollLeft / cardWidth);
   updateDots();
-});
+});  
 
 // ===== IPHONE SCREEN SLIDER =====
 const screenSlider = document.getElementById('screenSlider');
